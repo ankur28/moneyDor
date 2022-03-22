@@ -16,15 +16,17 @@ export default function Home() {
     )
 
   console.log(documents)
+
   let totalAmount = useRef(total).current
-  
+
   useEffect(() => {
     if(documents){
        documents.forEach((doc) =>{
+       // eslint-disable-next-line react-hooks/exhaustive-deps
        totalAmount += parseInt(doc.amount)
      })
-    setTotal(totalAmount)
   }
+      setTotal(totalAmount)
   }, [documents])
   
   return (
